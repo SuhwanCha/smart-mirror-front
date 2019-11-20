@@ -41,6 +41,12 @@ export default {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons'
       }
+    ],
+    script: [
+      {
+        type: 'text/javascript',
+        src: 'https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=dy8eji2czk'
+      }
     ]
   },
   /*

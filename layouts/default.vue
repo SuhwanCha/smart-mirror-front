@@ -61,7 +61,7 @@ export default {
         {
           icon: 'my_location',
           title: 'Set location',
-          to: '/inspire'
+          to: '/set-location'
         },
         {
           icon: 'settings_applications',
