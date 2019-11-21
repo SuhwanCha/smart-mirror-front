@@ -60,7 +60,10 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [{ src: '~/plugins/vuex-persist', ssr: false }],
+  plugins: [
+    { src: '~/plugins/vuex-persist', ssr: false },
+    { src: '~/plugins/axios', ssr: true }
+  ],
   /*
    ** Nuxt.js dev-modules
    */
@@ -81,12 +84,16 @@ export default {
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  axios: {
+    proxy: true
+  },
+  proxy: {
+    '/api': 'http://localhost:8000'
+  },
   /*
    ** vuetify module configuration
    ** https://github.com/nuxt-community/vuetify-module
-   */
-  vuetify: {
+   */ vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
       dark: false,

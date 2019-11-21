@@ -66,7 +66,7 @@ export default {
         {
           icon: 'settings_applications',
           title: 'Interests',
-          to: '/inspire'
+          to: '/interests'
         }
       ],
       miniVariant: false,

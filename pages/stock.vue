@@ -1,0 +1,15 @@
+<template>
+  <div>
+    <v-container>
+      <no-ssr>
+        <iframe
+          frameBorder="0"
+          scrolling="no"
+          width="360"
+          height="420"
+          src="https://api.stockdio.com/visualization/financial/charts/v1/HistoricalPrices?app-key=623E664677C24BEB8F0B6594176DFB00&symbol=AAPL&displayPrices=Candlestick&dividends=true&splits=true&palette=Financial-Light"
+        ></iframe>
+      </no-ssr>
+    </v-container>
+  </div>
+</template>

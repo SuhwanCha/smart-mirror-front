@@ -1,38 +1,7 @@
 export const strict = false;
 
 export const state = () => ({
-  list: [
-    {
-      text: 'Homework',
-      date: 'Nov 19 2019 18:33:08',
-      checked: false
-    },
-    {
-      text: 'Homework',
-      date: 'Nov 19 2019 18:33:08',
-      checked: false
-    },
-    {
-      text: 'Homework',
-      date: 'Nov 19 2019 18:33:08',
-      checked: false
-    },
-    {
-      text: 'Homework',
-      date: 'Nov 19 2019 18:33:08',
-      checked: false
-    },
-    {
-      text: 'Homework',
-      date: 'Nov 19 2019 18:33:08',
-      checked: false
-    },
-    {
-      text: 'Homework',
-      date: 'Nov 19 2019 18:33:08',
-      checked: false
-    }
-  ]
+  list: []
 });
 
 export const mutations = {

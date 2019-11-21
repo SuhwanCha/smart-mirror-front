@@ -2,7 +2,7 @@
   <div>
     <v-container>
       <v-row>
-        <v-col cols="12" sm="6">
+        <v-col cols="12" sm="12">
           <v-text-field
             append-outer-icon="add"
             label="Add Todo List"
