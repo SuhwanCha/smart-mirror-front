@@ -34,7 +34,12 @@ export default {
   methods: {},
   data: () => ({
     interests: ['todo', 'bus', 'subway', 'stock']
-  })
+    // interest: ['todo', 'bus', 'subway', 'stock']
+  }),
+  mounted() {
+    // console.log(this.interest2);
+    // this.interest = this.interests2;
+  }
 };
 </script>
 

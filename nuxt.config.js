@@ -88,8 +88,10 @@ export default {
     proxy: true
   },
   proxy: {
-    '/api': 'http://localhost:8000'
+    '/api/': { target: 'http://localhost:8000', pathRewrite: { '^/api/': '' } },
+    '/api2': { target: 'http://1.201.141.81:5902', pathRewrite: { '^/api2/': '' } }
   },
+
   /*
    ** vuetify module configuration
    ** https://github.com/nuxt-community/vuetify-module
