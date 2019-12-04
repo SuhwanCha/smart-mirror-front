@@ -35,7 +35,9 @@
     </v-content>
 
     <v-footer app>
-      <!-- <span>&copy; 2019 gdb.kr Co.</span> -->
+      <span style="color:gray;font-size:0.7em"
+        >&copy; 2019 gdb.kr Co., Ltd. all rights reserved</span
+      >
     </v-footer>
   </v-app>
 </template>

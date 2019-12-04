@@ -10,7 +10,10 @@
 <script>
 export default {
   async mounted() {
-    let location = await this.getLocation();
+    let location = await this.getLocation().catch(() => {
+      alert('Geolocation is not available. Please check GPS state or permission.');
+      this.$router.push('/');
+    });
     const naver = window.naver;
 
     var mapOptions = {
@@ -38,6 +41,9 @@ export default {
           },
           err => {
             reject(err);
+          },
+          {
+            timeout: 5000
           }
         );
       });
