@@ -25,15 +25,22 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+// import { mapGetters } from 'vuex';
 
 export default {
   layout: 'api',
-  computed: {
-    ...mapGetters({
-      ToDoList: 'todos/TodoList'
-    })
+  asyncData({ $axios, params }) {
+    return $axios.$get('/api/todo/get/' + params.id).then(res => {
+      return {
+        ToDoList: res
+      };
+    });
   },
+  // computed: {
+  //   ...mapGetters({
+  //     ToDoList: 'todos/TodoList'
+  //   })
+  // },
   methods: {
     deleteItem: function(index) {
       this.text = this.ToDoList[index].text + ' was successfully deleted.';

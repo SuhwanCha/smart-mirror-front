@@ -89,8 +89,8 @@ export default {
     proxy: true
   },
   proxy: {
-    '/api/': { target: 'http://localhost:8000', pathRewrite: { '^/api/': '' } },
-    '/api2': { target: '192.168.137.1:1338', pathRewrite: { '^/api2/': '' } }
+    '/api/': { target: 'http://54.180.88.195:8000', pathRewrite: { '^/api/': '' } },
+    '/api2': { target: 'http://192.168.137.1:1338', pathRewrite: { '^/api2/': '' } }
   },
 
   /*

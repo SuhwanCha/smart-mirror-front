@@ -1,8 +1,51 @@
 <template>
   <div>
-    <div v-if="!uid" class="register"></div>
+    <v-card style="margin-bottom:10px;">
+      <v-list-item two-line>
+        <v-list-item-content>
+          <v-list-item-title class="headline">Hi, Groot!</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+    </v-card>
+    <v-card style="margin-bottom:10px;">
+      <v-list-item two-line>
+        <v-list-item-content>
+          <v-list-item-title class="headline">Yoingin-si</v-list-item-title>
+          <v-list-item-subtitle>Wed, 3:30 AM, Mostly sunny</v-list-item-subtitle>
+        </v-list-item-content>
+      </v-list-item>
+      <v-card-text>
+        <v-row align="center">
+          <v-col class="display-3" cols="6">
+            -3&deg;C
+          </v-col>
+          <v-col cols="6">
+            <v-icon size="92" color="red lighten-1">mdi-white-balance-sunny</v-icon>
+          </v-col>
+        </v-row>
+      </v-card-text>
+    </v-card>
+    <v-card>
+      <v-list-item>
+        <v-list-item-content>
+          <v-list-item-title class="headline">Set Interests</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
 
-    <h3>Smart Mirror Management Application</h3>
+      <v-list>
+        <v-list-item-group multiple>
+          <v-list-item v-for="(item, i) in interests" :key="i">
+            <v-list-item-action>
+              <v-checkbox color="primary"></v-checkbox>
+            </v-list-item-action>
+
+            <v-list-item-content>
+              <v-list-item-title>{{ item.toUpperCase() }}</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list-item-group>
+      </v-list>
+    </v-card>
   </div>
 </template>
 
@@ -11,7 +54,8 @@ export default {
   data() {
     return {
       image: null,
-      imageUrl: null
+      imageUrl: null,
+      interests: ['todo', 'bus', 'subway', 'stock', 'rip make up']
     };
   },
   asyncData({ app, redirect }) {
@@ -63,5 +107,8 @@ export default {
   &.non-border {
     border: 0;
   }
+}
+.col-4 {
+  text-align: center;
 }
 </style>

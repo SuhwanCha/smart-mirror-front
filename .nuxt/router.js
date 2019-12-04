@@ -11,6 +11,8 @@ const _2298d4f2 = () => interopDefault(import('../pages/signup.vue' /* webpackCh
 const _d3784c12 = () => interopDefault(import('../pages/stock.vue' /* webpackChunkName: "pages/stock" */))
 const _d60e34c4 = () => interopDefault(import('../pages/subway.vue' /* webpackChunkName: "pages/subway" */))
 const _95c66116 = () => interopDefault(import('../pages/todo.vue' /* webpackChunkName: "pages/todo" */))
+const _18c7fbad = () => interopDefault(import('../pages/mapi/bus.vue' /* webpackChunkName: "pages/mapi/bus" */))
+const _77ed2e21 = () => interopDefault(import('../pages/mapi/interests/_id.vue' /* webpackChunkName: "pages/mapi/interests/_id" */))
 const _42fd41f6 = () => interopDefault(import('../pages/mapi/todos/_id.vue' /* webpackChunkName: "pages/mapi/todos/_id" */))
 const _1a8ccdb3 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
@@ -55,6 +57,14 @@ export const routerOptions = {
     path: "/todo",
     component: _95c66116,
     name: "todo"
+  }, {
+    path: "/mapi/bus",
+    component: _18c7fbad,
+    name: "mapi-bus"
+  }, {
+    path: "/mapi/interests/:id?",
+    component: _77ed2e21,
+    name: "mapi-interests-id"
   }, {
     path: "/mapi/todos/:id?",
     component: _42fd41f6,

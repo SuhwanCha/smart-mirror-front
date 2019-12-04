@@ -1,13 +1,19 @@
 <template>
   <div>
-    <v-card>
-      <v-list subheader two-line>
-        <v-subheader>Interests</v-subheader>
+    <v-card dark>
+      <v-list dark>
+        <v-list-item two-line>
+          <v-list-item-content>
+            <v-list-item-title class="headline">Sohee's Interests</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
 
+      <v-list subheader dark two-line>
         <v-list-item-group multiple>
-          <v-list-item v-for="(item, i) in interests" :key="i" @click="inter(item)">
+          <v-list-item v-for="(item, i) in interests" :key="i">
             <v-list-item-action>
-              <v-checkbox color="primary" v-model="idx[i]"></v-checkbox>
+              <v-checkbox v-model="idx[i]"></v-checkbox>
             </v-list-item-action>
 
             <v-list-item-content>
@@ -22,6 +28,7 @@
 
 <script>
 export default {
+  layout: 'api',
   computed: {
     idx: function() {
       let arr = [];
@@ -77,19 +84,15 @@ export default {
     }
   },
   data: () => ({
-    interests: ['todo', 'bus', 'subway', 'stock', 'rip make up']
+    interests: ['todo', 'bus', 'subway', 'stock']
   }),
-  asyncData({ app, $axios }) {
-    const uid = app.$cookies.get('smart-mirror-uid');
+  asyncData({ $axios, params }) {
+    const uid = params.id;
     return $axios.$get('/api/interest/get/' + uid).then(res => {
       return {
         interest: res
       };
     });
-  },
-  mounted() {
-    // this.$store.interests = this.interest;
-    this.$store.commit('syncInterests', this.interest);
   }
 };
 </script>

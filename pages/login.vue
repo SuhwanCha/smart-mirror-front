@@ -1,38 +1,38 @@
 <template>
   <div>
-    <div class="wrapper"></div>
-    <div class="overlay"></div>
     <div class="content">
       <v-row style="width:100%; height:100%; margin:0" justify="center" align="center" dense>
         <v-col cols="8">
-          <h3 style="color:white;text-align:center">Sign In</h3>
-          <v-text-field
-            label="Email"
-            v-model="email"
-            type="email"
-            dark
-            single-line
-            hide-details
-            filled
-          ></v-text-field>
+          <v-text-field label="Email" v-model="email" type="email" dark filled></v-text-field>
           <v-text-field
             label="Password"
             v-model="password"
             type="password"
             dark
-            single-line
             hide-details
             filled
           ></v-text-field>
-          <v-row dense>
+          <v-row dense justify="center" align="center">
+            <v-col cols="6">
+              <v-btn block rounded text dark color="white" style="margin-top:20px;" @click="signIn"
+                >Sign In</v-btn
+              >
+            </v-col>
+          </v-row>
+          <v-row dense justify="center" align="center">
+            <v-col cols="5">
+              <hr />
+            </v-col>
+            <v-col cols="2">
+              <p style="color:white;margin:0; text-align:center">or</p>
+            </v-col>
+            <v-col cols="5">
+              <hr />
+            </v-col>
+
             <v-col cols="6">
               <v-btn block rounded text dark style="margin-top:20px;" @click="signUp"
                 >Sign Up</v-btn
-              >
-            </v-col>
-            <v-col cols="6">
-              <v-btn block rounded color="white" style="margin-top:20px;" @click="signIn"
-                >Sign In</v-btn
               >
             </v-col>
           </v-row>
@@ -48,11 +48,29 @@ export default {
   data() {
     return {
       email: null,
-      password: null
+      password: null,
+      text: null,
+      snackbar: true
     };
   },
   methods: {
-    signIn: function() {},
+    signIn: function() {
+      this.$axios
+        .$post('/api/user/get', {
+          email: this.email,
+          password: this.password
+        })
+        .then(res => {
+          if (res) {
+            this.$store.commit('setUserId', res);
+            this.$router.push('/');
+          } else {
+            console.log('asd');
+            this.text = 'Please check ID and Password';
+            this.snackbar = true;
+          }
+        });
+    },
     signUp: function() {
       this.$router.push('/signup');
     }
@@ -72,12 +90,11 @@ export default {
   background-repeat: no-repeat;
 }
 
-.wrapper {
-  background-image: url('/bg.jpg');
-
+.content {
   @extend .full;
-  z-index: 1;
+  z-index: 3;
 }
+
 .overlay {
   @extend .full;
   background-color: rgba(0, 0, 0, 0.7);

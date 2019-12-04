@@ -10,7 +10,6 @@ export const state = () => ({
 export const mutations = {
   uploadIntersts: function(state, data) {
     let idx;
-    console.log(state.interests.indexOf(data));
     if ((idx = state.interests.indexOf(data)) != -1) {
       state.interests.splice(idx, 1);
     } else {
@@ -23,6 +22,10 @@ export const mutations = {
       maxAge: 60 * 60 * 24 * 365
     });
     state.userId = data;
+  },
+  syncInterests: function(state, data) {
+    console.log(data);
+    state.interests = data;
   }
 };
 

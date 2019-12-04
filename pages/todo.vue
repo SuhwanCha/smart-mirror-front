@@ -13,31 +13,34 @@
         </v-col>
       </v-row>
     </v-container>
-    <v-list subheader two-line flat>
-      <v-subheader>To do List</v-subheader>
+    <v-card>
+      <v-list subheader two-line>
+        <v-subheader>To do List</v-subheader>
 
-      <v-list-item-group multiple>
-        <v-list-item v-for="(item, i) in ToDoList" :key="i">
-          <v-list-item-action @click="$store.commit('todos/check', i)">
-            <v-checkbox readonly v-model="item.checked" color="primary"></v-checkbox>
-          </v-list-item-action>
+        <v-list-item-group multiple>
+          <v-list-item v-for="(item, i) in ToDoList" :key="i">
+            <v-list-item-action @click="$store.commit('todos/check', i)">
+              <v-checkbox readonly v-model="item.checked" color="primary"></v-checkbox>
+            </v-list-item-action>
 
-          <v-list-item-content>
-            <v-list-item-title :class="item.checked ? 'deleted' : ''">{{
-              item.text
-            }}</v-list-item-title>
-            <v-list-item-subtitle :class="item.checked ? 'deleted' : ''">{{
-              item.date
-            }}</v-list-item-subtitle>
-          </v-list-item-content>
-          <v-list-item-action @click="deleteItem(i)">
-            <v-btn icon>
-              <v-icon>delete</v-icon>
-            </v-btn>
-          </v-list-item-action>
-        </v-list-item>
-      </v-list-item-group>
-    </v-list>
+            <v-list-item-content>
+              <v-list-item-title :class="item.checked ? 'deleted' : ''">{{
+                item.text
+              }}</v-list-item-title>
+              <v-list-item-subtitle :class="item.checked ? 'deleted' : ''">{{
+                item.date
+              }}</v-list-item-subtitle>
+            </v-list-item-content>
+            <v-list-item-action @click="deleteItem(i)">
+              <v-btn icon>
+                <v-icon>delete</v-icon>
+              </v-btn>
+            </v-list-item-action>
+          </v-list-item>
+        </v-list-item-group>
+      </v-list>
+    </v-card>
+
     <v-snackbar v-model="snackbar"> {{ text }} </v-snackbar>
   </div>
 </template>
@@ -81,7 +84,7 @@ export default {
       ];
 
       let date = myDate.getDate();
-      let month = monthsList[myDate.getMonth()];
+      let month = monthsList[myDate.getMonth() + 1];
       let year = myDate.getFullYear();
       let day = daysList[myDate.getDay()];
 

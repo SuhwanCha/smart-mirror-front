@@ -8,8 +8,8 @@
 
 <style lang="scss" scoped>
 .wrapper {
-  width: 330px;
-  height: 450px;
+  min-width: 330px;
+  min-height: 450px;
   background: black;
 }
 </style>
