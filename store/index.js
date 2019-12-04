@@ -3,7 +3,8 @@ export const state = () => ({
   location: {
     lat: 0,
     lng: 0
-  }
+  },
+  userId: null
 });
 
 export const mutations = {
@@ -15,6 +16,13 @@ export const mutations = {
     } else {
       state.interests.push(data);
     }
+  },
+  setUserId: function(state, data) {
+    this.$cookies.set('smart-mirror-uid', data, {
+      path: '/',
+      maxAge: 60 * 60 * 24 * 365
+    });
+    state.userId = data;
   }
 };
 

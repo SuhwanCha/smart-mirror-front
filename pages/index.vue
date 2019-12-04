@@ -1,6 +1,7 @@
 <template>
   <div>
-    <h1>Register</h1>
+    <div v-if="!uid" class="register"></div>
+    <h3>Smart Mirror Management Application</h3>
     <div
       class="photo-preview"
       v-ripple
@@ -8,7 +9,7 @@
       :class="imageUrl ? 'non-border' : ''"
     >
       <v-img v-if="imageUrl" :src="imageUrl" width="100%" contain></v-img>
-      <v-icon v-else color="black" size="25px">add_a_photo</v-icon>
+      <v-icon v-else color="black" size="60px">insert_photo</v-icon>
     </div>
     <v-row justify="center" align="center">
       <v-btn color="success">Register</v-btn>
@@ -24,6 +25,9 @@ export default {
       image: null,
       imageUrl: null
     };
+  },
+  asyncData({ app }) {
+    return { uid: app.$cookies.get('smart-mirror-uid') };
   },
   methods: {
     onChange(e) {
@@ -59,7 +63,7 @@ export default {
   margin-top: 5px;
   width: 100%;
   min-height: 200px;
-  border: 1px solid rosybrown;
+  // border: 1px solid rosybrown;
   display: flex;
   justify-content: center;
   margin-bottom: 10px;

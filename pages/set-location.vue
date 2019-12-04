@@ -10,20 +10,23 @@
 <script>
 export default {
   async mounted() {
-    let location = await this.getLocation().catch(() => {
-      alert('Geolocation is not available. Please check GPS state or permission.');
-      this.$router.push('/');
-    });
+    // let location = await this.getLocation().catch(() => {
+    //   alert('Geolocation is not available. Please check GPS state or permission.');
+    //   this.$router.push('/');
+    // });
     const naver = window.naver;
-
+    let location = {
+      latitude: 37.247334,
+      longitude: 127.078445
+    };
     var mapOptions = {
-      center: new naver.maps.LatLng(location.coords.latitude, location.coords.longitude),
+      center: new naver.maps.LatLng(location.latitude, location.longitude),
       zoom: 13,
       useStyleMap: true
     };
     const map = new naver.maps.Map('map', mapOptions);
     new naver.maps.Marker({
-      position: new naver.maps.LatLng(location.coords.latitude, location.coords.longitude),
+      position: new naver.maps.LatLng(location.latitude, location.longitude),
       map: map
     });
 
@@ -56,3 +59,11 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+#map > div:nth-child(2),
+#map > div:nth-child(3),
+#map > div:nth-child(4) {
+  display: none;
+}
+</style>

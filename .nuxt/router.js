@@ -9,6 +9,7 @@ const _02a447ef = () => interopDefault(import('../pages/set-location.vue' /* web
 const _d3784c12 = () => interopDefault(import('../pages/stock.vue' /* webpackChunkName: "pages/stock" */))
 const _d60e34c4 = () => interopDefault(import('../pages/subway.vue' /* webpackChunkName: "pages/subway" */))
 const _95c66116 = () => interopDefault(import('../pages/todo.vue' /* webpackChunkName: "pages/todo" */))
+const _42fd41f6 = () => interopDefault(import('../pages/mapi/todos/_id.vue' /* webpackChunkName: "pages/mapi/todos/_id" */))
 const _1a8ccdb3 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 Vue.use(Router)
@@ -44,6 +45,10 @@ export const routerOptions = {
     path: "/todo",
     component: _95c66116,
     name: "todo"
+  }, {
+    path: "/mapi/todos/:id?",
+    component: _42fd41f6,
+    name: "mapi-todos-id"
   }, {
     path: "/",
     component: _1a8ccdb3,

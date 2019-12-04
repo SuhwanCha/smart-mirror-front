@@ -78,7 +78,8 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    'cookie-universal-nuxt'
   ],
   /*
    ** Axios module configuration
@@ -89,7 +90,7 @@ export default {
   },
   proxy: {
     '/api/': { target: 'http://localhost:8000', pathRewrite: { '^/api/': '' } },
-    '/api2': { target: 'http://1.201.141.81:5902', pathRewrite: { '^/api2/': '' } }
+    '/api2': { target: '192.168.137.1:1338', pathRewrite: { '^/api2/': '' } }
   },
 
   /*
