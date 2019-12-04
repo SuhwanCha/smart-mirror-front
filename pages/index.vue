@@ -1,20 +1,8 @@
 <template>
   <div>
     <div v-if="!uid" class="register"></div>
+
     <h3>Smart Mirror Management Application</h3>
-    <div
-      class="photo-preview"
-      v-ripple
-      @click="$refs.file.click()"
-      :class="imageUrl ? 'non-border' : ''"
-    >
-      <v-img v-if="imageUrl" :src="imageUrl" width="100%" contain></v-img>
-      <v-icon v-else color="black" size="60px">insert_photo</v-icon>
-    </div>
-    <v-row justify="center" align="center">
-      <v-btn color="success">Register</v-btn>
-    </v-row>
-    <input type="file" accept="image/*" ref="file" @change="onChange" style="display:none" />
   </div>
 </template>
 
@@ -26,8 +14,11 @@ export default {
       imageUrl: null
     };
   },
-  asyncData({ app }) {
-    return { uid: app.$cookies.get('smart-mirror-uid') };
+  asyncData({ app, redirect }) {
+    let uid = app.$cookies.get('smart-mirror-uid');
+    if (!uid) {
+      redirect('/login');
+    } else return { uid: app.$cookies.get('smart-mirror-uid') };
   },
   methods: {
     onChange(e) {

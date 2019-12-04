@@ -5,7 +5,9 @@ import scrollBehavior from './router.scrollBehavior.js'
 
 const _0e48daa1 = () => interopDefault(import('../pages/bus.vue' /* webpackChunkName: "pages/bus" */))
 const _6483392c = () => interopDefault(import('../pages/interests.vue' /* webpackChunkName: "pages/interests" */))
+const _37971e6c = () => interopDefault(import('../pages/login.vue' /* webpackChunkName: "pages/login" */))
 const _02a447ef = () => interopDefault(import('../pages/set-location.vue' /* webpackChunkName: "pages/set-location" */))
+const _2298d4f2 = () => interopDefault(import('../pages/signup.vue' /* webpackChunkName: "pages/signup" */))
 const _d3784c12 = () => interopDefault(import('../pages/stock.vue' /* webpackChunkName: "pages/stock" */))
 const _d60e34c4 = () => interopDefault(import('../pages/subway.vue' /* webpackChunkName: "pages/subway" */))
 const _95c66116 = () => interopDefault(import('../pages/todo.vue' /* webpackChunkName: "pages/todo" */))
@@ -30,9 +32,17 @@ export const routerOptions = {
     component: _6483392c,
     name: "interests"
   }, {
+    path: "/login",
+    component: _37971e6c,
+    name: "login"
+  }, {
     path: "/set-location",
     component: _02a447ef,
     name: "set-location"
+  }, {
+    path: "/signup",
+    component: _2298d4f2,
+    name: "signup"
   }, {
     path: "/stock",
     component: _d3784c12,
