@@ -1,9 +1,15 @@
 <template>
   <div class="wrapper">
     <div v-for="item in data" :key="item.name" class="bus">
-      <v-icon :color="item.color" size="100">directions_bus</v-icon>
-      <span class="name">{{ item.name }}</span>
-      <span class="time">{{ item.time ? parseInt(item.time / 60) + '분' : 'N/A' }}</span>
+      <template v-if="item.time">
+        <div>
+          <v-icon :color="item.color" size="100">directions_bus</v-icon>
+          <span class="name">{{ item.name }}</span>
+          <span class="time">{{
+            parseInt(item.time / 60) ? parseInt(item.time / 60) + '분' : '곧도착'
+          }}</span>
+        </div>
+      </template>
     </div>
   </div>
 </template>
@@ -20,14 +26,16 @@ export default {
     for (let i = 0; i < bus.length; i++) {
       for (let j = 0; j < bustime.length; j++) {
         if (bus[i].id == bustime[j].routeId) {
-          data.push({
-            name: bus[i].name,
-            color: bus[i].type.color,
-            time: bustime[j].predictTime1 || null
-          });
+          if (bustime[j].predictTime1)
+            data.push({
+              name: bus[i].name,
+              color: bus[i].type.color,
+              time: parseInt(bustime[j].predictTime1) || null
+            });
         }
       }
     }
+
     return {
       data: data.sort((a, b) => (a.time > b.time ? 1 : -1))
     };
